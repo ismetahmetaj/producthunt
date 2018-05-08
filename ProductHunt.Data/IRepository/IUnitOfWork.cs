@@ -5,6 +5,6 @@ namespace ProductHunt.Data.IRepository
     public interface IUnitOfWork
     {
         void Commit();
-        Task CommitAsync();
+        Task<int> CommitAsync();
     }
 }

@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.category {
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}

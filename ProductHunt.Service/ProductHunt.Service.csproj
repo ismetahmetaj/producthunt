@@ -45,9 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperConfiguration.cs" />
+    <Compile Include="IServices\IArticleService.cs" />
+    <Compile Include="IServices\ICategoryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ArticleService.cs" />
     <Compile Include="Services\BaseService.cs" />
-    <Compile Include="Services\IBaseService.cs" />
+    <Compile Include="IServices\IBaseService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProductHunt.Data\ProductHunt.Data.csproj">
@@ -59,9 +63,7 @@
       <Name>ProductHunt.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IServices\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

@@ -1,3 +1,17 @@
-﻿@{
+﻿@model IEnumerable<ProductHunt.Domain.Models.CategoryModel>
+@{
     ViewBag.Title = "Home Page";
 }
+
+<div class="row">
+    @foreach (var categoryModel in Model)
+    {
+        <div class="col col-lg-4">
+            <div class="category">
+                <a href="@Url.Action("Index")">
+                    @categoryModel.Name
+                </a>
+            </div>
+        </div>
+    }
+</div>

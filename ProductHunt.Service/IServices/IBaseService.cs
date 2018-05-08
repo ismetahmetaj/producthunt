@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ProductHunt.Data.Entity;
 using ProductHunt.Domain.Models;
 
-namespace ProductHunt.Service.Services
+namespace ProductHunt.Service.IServices
 {
     public interface IBaseService<TModel, TEntity> where TModel : BaseModel where TEntity : BaseEntity
     {
