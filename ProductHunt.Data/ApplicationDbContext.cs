@@ -22,7 +22,7 @@ namespace ProductHunt.Data
         public override int SaveChanges()
         {
             var entries = ChangeTracker.Entries()
-                .Where(p => p.Entity is BaseEntity && p.State == EntityState.Added || p.State == EntityState.Detached || p.State == EntityState.Deleted);
+                .Where(p => p.Entity is BaseEntity && p.State == EntityState.Added || p.State == EntityState.Detached || p.State == EntityState.Deleted || p.State == EntityState.Modified);
             foreach (var entry in entries)
             {
                 var entity = (BaseEntity)entry.Entity;
@@ -39,7 +39,7 @@ namespace ProductHunt.Data
         public override Task<int> SaveChangesAsync()
         {
             var entries = ChangeTracker.Entries()
-             .Where(p => p.Entity is BaseEntity && p.State == EntityState.Added || p.State == EntityState.Detached || p.State == EntityState.Deleted);
+             .Where(p => p.Entity is BaseEntity && p.State == EntityState.Added || p.State == EntityState.Detached || p.State == EntityState.Deleted || p.State == EntityState.Modified);
             foreach (var entry in entries)
             {
                 var entity = (BaseEntity)entry.Entity;

@@ -1,0 +1,21 @@
+﻿@model System.Collections.Generic.ICollection<ProductHunt.Domain.Models.ArticleModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Articles</h2>
+
+<div class="row">
+    @foreach (var articleModel in Model)
+    {
+        <div class="col col-lg-4">
+            <div class="category">
+                <a href="@Url.RouteUrl("article",new {categoryName = ViewBag.Category,articleName=articleModel.Name.Replace(" ","-")})">
+                    @articleModel.Name
+                </a>
+            </div>
+        </div>
+    }
+</div>

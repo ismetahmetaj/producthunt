@@ -1,8 +1,17 @@
-﻿@model dynamic
-
+﻿@model IEnumerable<ProductHunt.Domain.Models.CategoryModel>
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+    ViewBag.Title = "Home Page";
 }
 
-<h2>title</h2>
+<div class="row">
+    @foreach (var categoryModel in Model)
+    {
+        <div class="col col-lg-4">
+            <div class="category">
+                <a href="@Url.Action(categoryModel.Name)">
+                    @categoryModel.Name
+                </a>
+            </div>
+        </div>
+    }
+</div>

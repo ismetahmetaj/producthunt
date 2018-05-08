@@ -1,0 +1,38 @@
+﻿@model ProductHunt.Domain.Models.ArticleModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Article</h2>
+
+<form action="@Url.RouteUrl("article", new {categoryName = ViewBag.Category, articleName = Model.Name.Replace(" ", "-")})" method="post">
+    @Html.HiddenFor(p => p.Id)
+    <div class="form-group">
+        <label for="number">Number:</label>
+        @Html.TextBoxFor(p => p.Number, new {@class = "form-control"})
+        @Html.ValidationMessageFor(p => p.Number, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Name,"",new {@class = "text-danger"})
+    </div>
+    <div class="form-group">
+        <label for="Category">Category:</label>
+        @Html.DropDownListFor(p => p.CategoryId, ViewBag.CategoryList as IEnumerable<SelectListItem>, "Select Category", new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.CategoryId, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label for="Description">Description:</label>
+        @Html.TextAreaFor(p => p.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Description, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label for="Price">Price:incl. of VAT</label>
+        @Html.TextBoxFor(p => p.PriceWithVAT, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.PriceWithVAT, "", new { @class = "text-danger" })
+    </div>
+    <input type="submit" name="submit" value="Update" class="btn btn-success"/>
+</form>

@@ -32,9 +32,10 @@ namespace ProductHunt.Service.Services
 
         public virtual async Task<TModel> Update(TModel value)
         {
-            var model = Repository.Update(Mapper.Map<TEntity>(value));
+            var entity = await Repository.FindAsync(p => p.Id == value.Id);
+            Mapper.Map(value, entity);            
             await SaveChangesAsync();
-            return Mapper.Map<TModel>(model);
+            return Mapper.Map<TModel>(entity);
         }
 
         public virtual void Delete(int id)

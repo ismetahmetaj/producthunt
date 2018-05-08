@@ -15,9 +15,12 @@ namespace ProductHunt.Service
         public static void Configure()
         {
             Mapper.Initialize(cfg =>
-            {                             
-                cfg.CreateMap<Article,ArticleModel>()
-                .ReverseMap();                
+            {
+                cfg.CreateMap<Article, ArticleModel>()
+                .ReverseMap()
+                .ForMember(p => p.Category, o => o.Ignore())
+                .ForMember(p => p.CreatedOn, o => o.Ignore())
+                .ForMember(p => p.UpdatedOn, o => o.Ignore());
             });
         }
     }
